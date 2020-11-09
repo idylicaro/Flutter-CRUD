@@ -45,9 +45,9 @@ class UsersProvider with ChangeNotifier{
     notifyListeners();
   }
 
-  void remove(int id){
-    if(id != null){
-      _items.remove(id);
+  void remove(User user){
+    if(user.id != null){
+      _items.remove(user.id);
       notifyListeners();
     }
   }
