@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/views/user_list.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_crud/provider/users.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,12 +11,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (context) => UsersProvider(),
+      child: MaterialApp(
+        title: 'Flutter C.R.U.D',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: UserList(),
       ),
-      home: UserList(),
     );
   }
 }
