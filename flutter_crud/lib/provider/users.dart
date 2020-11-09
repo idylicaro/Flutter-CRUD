@@ -42,8 +42,13 @@ class UsersProvider with ChangeNotifier{
           avatarUrl: user.avatarUrl
       ));
     }
-
-
     notifyListeners();
+  }
+
+  void remove(int id){
+    if(id != null){
+      _items.remove(id);
+      notifyListeners();
+    }
   }
 }
